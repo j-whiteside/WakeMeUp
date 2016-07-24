@@ -12,4 +12,31 @@
     tools:context="com.example.jeremy.wakemeup.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start alarm"
+        android:id="@+id/stopAlarmButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:onClick="showAlarm" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Alarm"
+        android:id="@+id/startAlarmButton"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/stopAlarmButton"
+        android:onClick="stopAlarm" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule Alarm"
+        android:id="@+id/ScheduleAlarmButton"
+        android:onClick="scheduleAlarm"
+        android:layout_alignTop="@+id/startAlarmButton"
+        android:layout_toEndOf="@+id/startAlarmButton" />
+
 </RelativeLayout>
