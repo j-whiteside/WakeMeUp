@@ -77,6 +77,7 @@ public class UpdateActivity extends AppCompatActivity {
         }
 
         alarmNameEditText = (EditText) findViewById(R.id.alarmNameEditText);
+        alarmNameEditText.setText(data.getName().toString());
 
         startTimePicker = (TimePicker) findViewById(R.id.startTimePicker);
         startTimePicker.setHour(data.getStartHour());
@@ -117,7 +118,7 @@ public class UpdateActivity extends AppCompatActivity {
 
     private void saveData()
     {
-        tempAlarm.setName(alarmNameEditText.toString());
+        tempAlarm.setName(alarmNameEditText.getText().toString());
         tempAlarm.setFrequency(frequencySpinner.getSelectedItemPosition());
 
         if(alarmNameEditText.getText().toString().length() > 0)

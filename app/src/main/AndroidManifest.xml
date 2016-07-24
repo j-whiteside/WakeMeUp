@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".UpdateActivity" />
+        <activity android:name=".UpdateActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
         <activity android:name=".AlarmPopup"
             android:label="More on notification"

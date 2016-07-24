@@ -25,10 +25,11 @@
             android:id="@+id/topVerticalLayout">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/alarmNameEditText"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:layout_gravity="center_horizontal" />
 
             <TimePicker
                 android:layout_width="wrap_content"
@@ -54,7 +55,9 @@
         android:layout_below="@+id/scrollView"
         android:layout_centerHorizontal="true"
         android:shrinkColumns="0"
-        android:stretchColumns="1,2">
+        android:stretchColumns="1,2"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
 
         <TableRow
             android:layout_width="match_parent"

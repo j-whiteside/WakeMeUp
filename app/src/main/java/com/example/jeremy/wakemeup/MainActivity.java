@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -86,46 +87,33 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateDisplayList()
     {
-//        boolean colourSwap = false;
-//
-//        TableLayout t = (TableLayout) findViewById(R.id.mainTableLayout);
-//        t.removeAllViews();
-//
-//
-//        System.out.println("dataList count: " + serializableData.dataList.size());
-//        for(int index = 0; index < serializableData.dataList.size(); index++){
-//            final int indexExtra = index;
-//            AlarmObjectView w = new AlarmObjectView(this.getApplicationContext(), null);
-//
-//            if (colourSwap) {
-//                w.setBackgroundColor(Color.parseColor("#f5f5f0"));
-//            }
-//            else {
-//                w.setBackgroundColor(Color.parseColor("#e0e0d1"));
-//            }
-//
-//            colourSwap = !colourSwap;
-//
-//            w.updateViewData(serializableData.dataList.get(index));
-//
-//            TableRow r = new TableRow(this.getApplicationContext(), null);
-//            r.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
-//
-//
-//            t.addView(r);
-//            r.addView(w);
-//
-//            w.getButton().setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent updateIntent = new Intent(MainActivity.this, UpdateActivity.class);
-//                    //updateIntent.putExtra("data_object", temp);
-//
-//                    updateIntent.putExtra("data_index", indexExtra);
-//                    startActivity(updateIntent);
-//                }
-//            });
-//        }
+        TableLayout t = (TableLayout) findViewById(R.id.mainTableLayout);
+        t.removeAllViews();
+
+
+        System.out.println("dataList count: " + serializableData.dataList.size());
+        for(int index = 0; index < serializableData.dataList.size(); index++){
+            final int indexExtra = index;
+            AlarmObjectView w = new AlarmObjectView(this.getApplicationContext(), null);
+
+            w.updateViewData(serializableData.dataList.get(index));
+            TableLayout.LayoutParams marginParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
+            marginParams.setMargins(0,0,0,25);
+            w.setPadding(12,0,0,0);
+            w.isClickable();
+            t.addView(w, marginParams);
+
+            w.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent updateIntent = new Intent(MainActivity.this, UpdateActivity.class);
+                    //updateIntent.putExtra("data_object", temp);
+
+                    updateIntent.putExtra("data_index", indexExtra);
+                    startActivity(updateIntent);
+                }
+            });
+        }
     }
 
     @Override
