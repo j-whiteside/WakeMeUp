@@ -8,7 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jeremy.wakemeup.UpdateActivity"
-    android:id="@+id/mainRelativeLayout">
+    android:id="@+id/mainRelativeLayout"
+    android:touchscreenBlocksFocus="true">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,13 +34,15 @@
                 android:layout_height="99dp"
                 android:id="@+id/startTimePicker"
                 android:clickable="true"
-                android:textAlignment="textStart" />
+                android:textAlignment="textStart"
+                android:theme="@style/AppTheme.Dialog" />
 
             <TimePicker
                 android:layout_width="wrap_content"
                 android:layout_height="99dp"
                 android:id="@+id/endTimePicker"
-                android:clickable="true" />
+                android:clickable="true"
+                android:theme="@style/AppTheme.Dialog" />
 
         </LinearLayout>
     </ScrollView>

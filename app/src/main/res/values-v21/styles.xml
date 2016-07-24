@@ -1,9 +1,28 @@
 <resources>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:dialogTheme">@style/AppTheme.Dialog</item>
+        <item name="android:timePickerDialogTheme">@style/AppTheme.Dialog</item>
+        <item name="android:alertDialogTheme">@style/AppTheme.Dialog</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">#8df7f5</item>
+        <item name="android:textColorSecondary">#58c6c4</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar." parent="AppTheme.NoActionBar.Base">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:dialogTheme">@color/colorPrimaryDark</item>
+        <item name="android:alertDialogTheme">@color/colorPrimaryDark</item>
     </style>
+
 </resources>
