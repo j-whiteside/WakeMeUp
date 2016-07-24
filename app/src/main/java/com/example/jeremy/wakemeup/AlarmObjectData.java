@@ -1,6 +1,7 @@
 package com.example.jeremy.wakemeup;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -51,35 +52,35 @@ public class AlarmObjectData implements Serializable
     }
 
     public int getStartHour() {
-        int startHour = startTime.HOUR;
+        int startHour = startTime.get(Calendar.HOUR_OF_DAY);
         return startHour;
     }
-    public void setStartHour() {
-        int startHour = startTime.HOUR;
+    public void setStartHour(int startHour) {
+        startTime.set(Calendar.HOUR_OF_DAY, startHour);
     }
 
     public int getStartMinute() {
-        int startMinute = startTime.MINUTE;
+        int startMinute = startTime.get(Calendar.MINUTE);
         return startMinute;
     }
-    public void setStartMinute() {
-        int startMinute = startTime.MINUTE;
+    public void setStartMinute(int startMinute) {
+        startTime.set(Calendar.MINUTE, startMinute);
     }
 
     public int getEndHour() {
-        int endHour = endTime.HOUR;
+        int endHour = endTime.get(Calendar.HOUR_OF_DAY);
         return endHour;
     }
-    public void setEndHour() {
-        int endHour = endTime.HOUR;
+    public void setEndHour(int endHour) {
+        endTime.set(Calendar.HOUR_OF_DAY, endHour);
     }
 
     public int getEndMinute() {
-        int endMinute = endTime.MINUTE;
+        int endMinute = endTime.get(Calendar.MINUTE);
         return endMinute;
     }
-    public void setEndMinute() {
-        int endMinute = endTime.MINUTE;
+    public void setEndMinute(int endMinute) {
+        endTime.set(Calendar.MINUTE, endMinute);
     }
 
 
