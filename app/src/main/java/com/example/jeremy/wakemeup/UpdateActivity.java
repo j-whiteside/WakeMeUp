@@ -1,13 +1,29 @@
 package com.example.jeremy.wakemeup;
 
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
 
+    TimePicker startTimePicker;
+    TimePicker endTimePicker;
+
+    static final int START_DIALOG_ID = 0;
+    static final int END_DIALOG_ID = 1;
+    int startHour;
+    int startMinute;
+    int endHour;
+    int endMinute;
+    String buttonName;
 
 
     @Override
@@ -21,5 +37,64 @@ public class UpdateActivity extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainRelativeLayout);
         EditText editText = (EditText) findViewById(R.id.alarmNameEditText);
         editText.setText(message);
+        showTimePickerDialog();
     }
+
+    public void showTimePickerDialog () {
+        startTimePicker = (TimePicker)findViewById(R.id.startTimePicker);
+        endTimePicker = (TimePicker) findViewById(R.id.endTimePicker);
+
+        startTimePicker.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        buttonName = "start";
+                        showDialog(START_DIALOG_ID);
+                    }
+                }
+        );
+
+        endTimePicker.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        buttonName = "end";
+                        showDialog(END_DIALOG_ID);
+                    }
+                }
+        );
+    }
+
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        if (id == START_DIALOG_ID)
+            return new TimePickerDialog(UpdateActivity.this, timePickerListener, startHour, startMinute, false);
+        else if (id == END_DIALOG_ID)
+            return new TimePickerDialog(UpdateActivity.this, timePickerListener, endHour, endMinute, false);
+        else
+            return null;
+    }
+
+    protected TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            if (buttonName == "start") {
+                startHour = hourOfDay;
+                startTimePicker.setHour(hourOfDay);
+                startMinute = minute;
+                startTimePicker.setMinute(minute);
+                Toast.makeText(UpdateActivity.this, "Alarm will start at " + startHour + ":" + startMinute, Toast.LENGTH_LONG).show();
+            }
+            else {
+                endHour = hourOfDay;
+                endTimePicker.setHour(hourOfDay);
+                endMinute = minute;
+                endTimePicker.setMinute(minute);
+                Toast.makeText(UpdateActivity.this, "Alarm will end at " + endHour + ":" + endMinute, Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+    };
 }

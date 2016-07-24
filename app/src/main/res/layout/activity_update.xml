@@ -30,14 +30,56 @@
 
             <TimePicker
                 android:layout_width="wrap_content"
-                android:layout_height="106dp"
-                android:id="@+id/timePicker" />
+                android:layout_height="99dp"
+                android:id="@+id/startTimePicker"
+                android:clickable="true"
+                android:textAlignment="textStart" />
 
             <TimePicker
                 android:layout_width="wrap_content"
-                android:layout_height="106dp"
-                android:id="@+id/timePicker2" />
+                android:layout_height="99dp"
+                android:id="@+id/endTimePicker"
+                android:clickable="true" />
+
         </LinearLayout>
     </ScrollView>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/scrollView"
+        android:layout_centerHorizontal="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:layout_weight="1"
+                android:text="@string/button_save" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_cancel"
+                android:id="@+id/button2"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_delete"
+                android:id="@+id/button3"
+                android:layout_weight="1" />
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>
