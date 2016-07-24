@@ -12,6 +12,7 @@ import android.support.v7.app.NotificationCompat;
  */
 public class AlertReceiver extends BroadcastReceiver{
 
+    NotificationManager notificationManager;
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -32,7 +33,7 @@ public class AlertReceiver extends BroadcastReceiver{
         notificationBuilder.setDefaults(NotificationCompat.DEFAULT_ALL);
         notificationBuilder.setAutoCancel(true);
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(1, notificationBuilder.build());
     }

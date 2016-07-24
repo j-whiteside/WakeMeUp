@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.GregorianCalendar;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     NotificationManager notificationManager;
     boolean isAlarmRinging = false;
     int notificationID = 33;
+    PendingIntent pi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,13 +99,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void scheduleAlarm(View view) {
-        Long alertTime = new GregorianCalendar().getTimeInMillis()+5*1000;
+        Long alertTime = new GregorianCalendar().getTimeInMillis()+(6*1000);
 
         Intent alertIntent = new Intent(this, AlertReceiver.class);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, alertTime, PendingIntent.getBroadcast(this, 1, alertIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+        //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 5000, pi);
+
+        Toast.makeText(MainActivity.this, "Bomb activated", Toast.LENGTH_LONG).show();
     }
 
 }
