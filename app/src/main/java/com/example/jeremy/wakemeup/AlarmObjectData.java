@@ -19,7 +19,15 @@ public class AlarmObjectData implements Serializable
 
 
 
-    public AlarmObjectData(String name, GregorianCalendar startTime, GregorianCalendar endTime, int frequency, boolean activeStatus, int challengeLevel, String alarmTone) {
+    public AlarmObjectData(String name, GregorianCalendar startTime, GregorianCalendar endTime, int frequency)
+    {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.frequency = frequency;
+    }
+
+     AlarmObjectData(String name, GregorianCalendar startTime, GregorianCalendar endTime, int frequency, boolean activeStatus, int challengeLevel, String alarmTone) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -28,6 +36,7 @@ public class AlarmObjectData implements Serializable
         this.challengeLevel = challengeLevel;
         this.alarmTone = alarmTone;
     }
+
 
     public String getName() {
         return name;

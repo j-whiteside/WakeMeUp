@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     NotificationManager notificationManager;
     boolean isAlarmRinging = false;
     int notificationID = 33;
-    PendingIntent pi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,10 +102,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent alertIntent = new Intent(this, AlertReceiver.class);
 
+        PendingIntent pi = PendingIntent.getBroadcast(this, 1, alertIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
-        alarmManager.set(AlarmManager.RTC_WAKEUP, alertTime, PendingIntent.getBroadcast(this, 1, alertIntent, PendingIntent.FLAG_UPDATE_CURRENT));
-        //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 5000, pi);
+        //alarmManager.set(AlarmManager.RTC_WAKEUP, alertTime, pi);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alertTime, 1000 * 10, pi);
 
         Toast.makeText(MainActivity.this, "Bomb activated", Toast.LENGTH_LONG).show();
     }

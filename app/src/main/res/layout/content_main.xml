@@ -12,31 +12,129 @@
     tools:context="com.example.jeremy.wakemeup.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start alarm"
-        android:id="@+id/stopAlarmButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:onClick="showAlarm" />
+        android:id="@+id/linearLayout">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop Alarm"
-        android:id="@+id/startAlarmButton"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/stopAlarmButton"
-        android:onClick="stopAlarm" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="0"
+            android:id="@+id/tableLayout2" >
 
-    <Button
-        android:layout_width="wrap_content"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="10:00AM - 11:00AM\n Every 2 minutes"
+                    android:id="@+id/textView6"
+                    android:minLines="2"
+                    android:maxLines="2"
+                    android:textIsSelectable="false"
+                    android:clickable="true" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/switch6"
+                    android:layout_gravity="center_vertical|right" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="10:00AM - 11:00AM\n Every 2 minutes"
+                    android:id="@+id/textView7"
+                    android:minLines="2"
+                    android:maxLines="2" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/switch7"
+                    android:layout_gravity="center_vertical|right" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="10:00AM - 11:00AM\n Every 2 minutes"
+                    android:id="@+id/textView8"
+                    android:minLines="2"
+                    android:maxLines="2" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/switch8"
+                    android:layout_gravity="center_vertical|right" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Schedule Alarm"
-        android:id="@+id/ScheduleAlarmButton"
-        android:onClick="scheduleAlarm"
-        android:layout_alignTop="@+id/startAlarmButton"
-        android:layout_toEndOf="@+id/startAlarmButton" />
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stop Alarm"
+                android:id="@+id/startAlarmButton"
+                android:onClick="stopAlarm"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ScheduleAlarmButton"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start alarm"
+                android:id="@+id/stopAlarmButton"
+                android:onClick="showAlarm"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Schedule Alarm"
+                android:id="@+id/ScheduleAlarmButton"
+                android:onClick="scheduleAlarm"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1" />
+        </TableRow>
+    </LinearLayout>
 
 </RelativeLayout>

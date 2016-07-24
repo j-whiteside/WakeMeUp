@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -16,6 +18,11 @@ public class UpdateActivity extends AppCompatActivity {
 
     TimePicker startTimePicker;
     TimePicker endTimePicker;
+    Spinner frequencySpinner;
+
+    Button saveButton;
+    Button cancelButton;
+    Button deleteButton;
 
     static final int START_DIALOG_ID = 0;
     static final int END_DIALOG_ID = 1;
@@ -38,6 +45,24 @@ public class UpdateActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.alarmNameEditText);
         editText.setText(message);
         showTimePickerDialog();
+
+        saveButton = (Button) findViewById(R.id.saveButton);
+        cancelButton = (Button) findViewById(R.id.cancelButton);
+        deleteButton = (Button) findViewById(R.id.deleteButton);
+
+        frequencySpinner = (Spinner) findViewById(R.id.frequencySpinner);
+        ArrayAdapter frequencyAdapter = ArrayAdapter.createFromResource(this, R.array.FrequencySpinnerOptions, android.R.layout.simple_spinner_item);
+        frequencyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        frequencySpinner.setAdapter(frequencyAdapter);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mainIntent = new Intent(UpdateActivity.this, MainActivity.class);
+                    startActivity(mainIntent);
+                }
+            }
+        );
     }
 
     public void showTimePickerDialog () {
